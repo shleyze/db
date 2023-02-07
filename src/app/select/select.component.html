@@ -1,0 +1,6 @@
+<select [disabled]="disabled" (change)="handleChange($event)">
+  <option value="" disabled selected>Select {{ label }}</option>
+  <option *ngFor="let option of getOptions" [value]="option.id">
+    {{ option.label }}
+  </option>
+</select>

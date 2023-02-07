@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <th *ngFor="let column of columns">{{ column.header }}</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td
+        *ngFor="let column of columns"
+        [innerHTML]="
+          column.renderField
+            ? column.renderField(item)
+            : column.cellField
+            ? item[column.cellField]
+            : ''
+        "
+      ></td>
+    </tr>
+  </tbody>
+</table>
